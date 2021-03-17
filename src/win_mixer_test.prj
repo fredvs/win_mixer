@@ -144,7 +144,7 @@ options=114
  sorted=0
  col=-1073741823
  row=-1073741823
- rowheight=16
+ rowheight=17
  [projectoptionsfo.newfile]
  firsttab=0
  index=0
@@ -166,7 +166,7 @@ options=114
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=199
+ y=198
  xprop=1
  yprop=0.39334637964775
  [projectoptionsfo.macrogrid]
@@ -193,7 +193,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=790
  width0=47
@@ -448,12 +448,12 @@ makeoptionson=7
  4092
  4095
 compilerusedon=29
- 4095
+ 4091
  0
  0
  0
  0
- 0
+ 4
  0
  0
  0
@@ -485,9 +485,9 @@ debuggerusedon=6
  0
  0
 exeusedon=14
- 4095
+ 4091
  0
- 0
+ 4
  0
  0
  0
@@ -788,18 +788,23 @@ findhistory=20
  snd_mixer_selem_id_set_name
  snd_mixer_selem_id_set_index
 findoptions=1
-editpos=2
+editpos=3
+ 0,105
+ 0,0
  0,-1073741823
- 0,67
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/win_mixer.pas
- /home/fred/win_mixer/src/win_mixer_test.pas
-relpaths=2
+ ${PROJECTDIR}/win_mixer_test.pas
+ ${PROJECTDIR}/win_mixer_test.pas
+relpaths=3
  win_mixer.pas
  win_mixer_test.pas
-ismoduletexts=2
+ win_mixer_test.pas
+ismoduletexts=3
+ 0
  0
  0
 modules=0
@@ -808,7 +813,7 @@ visiblemodules=0
 nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=0
 [layout]
 windowlayout=563
  [mainfo.basedock]
@@ -850,7 +855,7 @@ windowlayout=563
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1283,11 +1288,11 @@ windowlayout=563
  visible=1
  mdistate=0
  nx=0
- ny=-4
+ ny=-5
  ncx=1341
  ncy=0
  x=0
- y=-4
+ y=-5
  cx=1341
  cy=-2
  rcx=0
@@ -1299,7 +1304,7 @@ windowlayout=563
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/win_mixer/src/win_mixer_test.pas
+ value=/home/fred/win_mixer/src/win_mixer.pas
  history=10
   /home/fred/win_mixer/src/win_mixer_test.pas
   /home/fred/win_mixer/src/win_mixer.pas
@@ -1333,7 +1338,7 @@ windowlayout=563
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]

@@ -34,6 +34,7 @@ type
   IAudioEndpointVolumeCallback = interface(IUnknown)
     ['{657804FA-D6AD-4496-8A60-352752AF4F89}']
     function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
+    procedure Init();
   end;
   
    IAudioEndpointVolume = interface(IUnknown)
@@ -73,7 +74,6 @@ type
     function GetState(out State: Integer): HRESULT; stdcall;
   end;
 
-
   IMMDeviceCollection = interface(IUnknown)
   ['{0BD7A1BE-7A1A-44DB-8397-CC5392387B5E}']
   end;
@@ -104,8 +104,7 @@ type
     FAudioEndpointVolume: IAudioEndpointVolume;
     function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall; 
     procedure Init();
- 
- end; 
+  end; 
  
  procedure WINmixerSetCallBack(callback: Tproc);
  
@@ -115,7 +114,7 @@ type
                                                     // volume from 0 to 100 
 
 var
-  AEndpoint : TEndpointVolumeCallback;
+  AEndpoint : IAudioEndpointVolumeCallback;
   ACallBack : TProc;
   wm_MasterVolLeft, wm_MasterVolRight : integer; 
   wm_MasterMuted : boolean;
@@ -133,7 +132,6 @@ begin
   OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, 
   CLSCTX_INPROC_SERVER, IID_IMMDeviceEnumerator, LDeviceEnumerator));
   OleCheck(LDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, Dev));
- 
   OleCheck(Dev.Activate(IID_IAudioEndpointVolume, CLSCTX_INPROC_SERVER, nil, pEndpointVolume));
   avol := volume/100;
   (pEndpointVolume.SetMasterVolumeLevelScalar(avol, @GUID_NULL));
@@ -151,10 +149,9 @@ begin
    IID_IMMDeviceEnumerator, LDeviceEnumerator)); 
   OleCheck(LDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, dev));
   OleCheck(Dev.Activate(IID_IAudioEndpointVolume, CLSCTX_INPROC_SERVER, nil, pEndpointVolume));
-    
   (pEndpointVolume.GetMasterVolumeLevelScaler(avol));
    
-   result := round(avol * 100);
+  result := round(avol * 100);
 end;
  
 procedure WINmixerSetCallBack(callback: Tproc);
@@ -162,6 +159,7 @@ begin
  AEndpoint := TEndpointVolumeCallback.create;
  AEndpoint.init();
  ACallBack := callback; 
+ //AEndpoint.free;
 end;
 
  procedure TEndpointVolumeCallback.Init();
@@ -186,6 +184,6 @@ initialization
 
 finalization  
  CoUninitialize;
- if assigned(AEndpoint) then AEndpoint.free;
+ AEndpoint := nil;
 
 end.
