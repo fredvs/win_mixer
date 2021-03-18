@@ -61,6 +61,8 @@ begin
 
   readln;
   
+  WINmixerFreeCallback();
+  
   writeln('Bye bye...');
 
 end.

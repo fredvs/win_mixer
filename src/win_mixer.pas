@@ -34,7 +34,6 @@ type
   IAudioEndpointVolumeCallback = interface(IUnknown)
     ['{657804FA-D6AD-4496-8A60-352752AF4F89}']
     function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
-    procedure Init();
   end;
   
    IAudioEndpointVolume = interface(IUnknown)
@@ -74,6 +73,7 @@ type
     function GetState(out State: Integer): HRESULT; stdcall;
   end;
 
+
   IMMDeviceCollection = interface(IUnknown)
   ['{0BD7A1BE-7A1A-44DB-8397-CC5392387B5E}']
   end;
@@ -97,14 +97,13 @@ type
 Tproc = procedure;  
 
 type
-
  TEndpointVolumeCallback = class(TInterfacedObject, IAudioEndpointVolumeCallback)
     FDeviceEnumerator: IMMDeviceEnumerator;
     FMMDevice: IMMDevice;
     FAudioEndpointVolume: IAudioEndpointVolume;
     function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall; 
     procedure Init();
-  end; 
+ end; 
  
  procedure WINmixerSetCallBack(callback: Tproc);
  
@@ -113,15 +112,23 @@ type
  procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
                                                     // volume from 0 to 100 
 
+ procedure WINmixerFreeCallback();
+
 var
-  AEndpoint : IAudioEndpointVolumeCallback;
-  ACallBack : TProc;
   wm_MasterVolLeft, wm_MasterVolRight : integer; 
   wm_MasterMuted : boolean;
-
+  
 implementation
 
-//procedure WINmixerSetVolume(fLevelDB: single);
+var
+  ACallBack : TProc;
+  AEndpoint : TEndpointVolumeCallback;
+
+procedure WINmixerFreeCallback();
+begin
+if assigned(AEndpoint) then AEndpoint.free;
+end;
+ 
 procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
 var
   pEndpointVolume: IAudioEndpointVolume;
@@ -132,6 +139,7 @@ begin
   OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, 
   CLSCTX_INPROC_SERVER, IID_IMMDeviceEnumerator, LDeviceEnumerator));
   OleCheck(LDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, Dev));
+ 
   OleCheck(Dev.Activate(IID_IAudioEndpointVolume, CLSCTX_INPROC_SERVER, nil, pEndpointVolume));
   avol := volume/100;
   (pEndpointVolume.SetMasterVolumeLevelScalar(avol, @GUID_NULL));
@@ -144,22 +152,21 @@ var
   Dev: IMMDevice;
   avol : single;
 begin
- 
   OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, CLSCTX_INPROC_SERVER,
    IID_IMMDeviceEnumerator, LDeviceEnumerator)); 
   OleCheck(LDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, dev));
   OleCheck(Dev.Activate(IID_IAudioEndpointVolume, CLSCTX_INPROC_SERVER, nil, pEndpointVolume));
+    
   (pEndpointVolume.GetMasterVolumeLevelScaler(avol));
    
-  result := round(avol * 100);
+   result := round(avol * 100);
 end;
  
 procedure WINmixerSetCallBack(callback: Tproc);
 begin
- AEndpoint := TEndpointVolumeCallback.create;
+ AEndpoint := TEndpointVolumeCallback.create();
  AEndpoint.init();
  ACallBack := callback; 
- //AEndpoint.free;
 end;
 
  procedure TEndpointVolumeCallback.Init();
@@ -173,10 +180,10 @@ end;
  
 function TEndpointVolumeCallback.OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
 begin
-wm_MasterVolLeft := Round(100 * pNotify^.fMasterVolume);
-wm_MasterVolRight := wm_MasterVolLeft; // todo
-wm_MasterMuted := pNotify^.bMuted;
-ACallBack;
+  wm_MasterVolLeft := Round(100 * pNotify^.fMasterVolume);
+  wm_MasterVolRight := wm_MasterVolLeft; // todo
+  wm_MasterMuted := pNotify^.bMuted;
+  ACallBack;
 end;
 
 initialization

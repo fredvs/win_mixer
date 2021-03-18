@@ -193,7 +193,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=790
  width0=47
@@ -441,19 +441,19 @@ modulefiles=0
 befcommandon=0
 makeoptionson=7
  4095
- 5
+ 1
  4095
  4095
  6
  4092
  4095
 compilerusedon=29
- 4091
+ 4095
  0
  0
  0
  0
- 4
+ 0
  0
  0
  0
@@ -788,23 +788,18 @@ findhistory=20
  snd_mixer_selem_id_set_name
  snd_mixer_selem_id_set_index
 findoptions=1
-editpos=3
- 0,105
- 0,0
+editpos=2
  0,-1073741823
+ 0,61
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-sourcefiles=3
+sourcefiles=2
  ${PROJECTDIR}/win_mixer.pas
  ${PROJECTDIR}/win_mixer_test.pas
- ${PROJECTDIR}/win_mixer_test.pas
-relpaths=3
+relpaths=2
  win_mixer.pas
  win_mixer_test.pas
- win_mixer_test.pas
-ismoduletexts=3
- 0
+ismoduletexts=2
  0
  0
 modules=0
@@ -813,7 +808,7 @@ visiblemodules=0
 nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
 windowlayout=563
  [mainfo.basedock]
@@ -855,7 +850,7 @@ windowlayout=563
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -949,7 +944,7 @@ windowlayout=563
  x=0
  y=0
  cx=205
- cy=528
+ cy=527
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1172,7 +1167,7 @@ windowlayout=563
  width0=111
  sortdescend0=0
  sortdescend1=0
- width2=160
+ width2=103
  sortdescend2=0
  width3=185
  sortdescend3=0
@@ -1278,7 +1273,7 @@ windowlayout=563
  x=0
  y=0
  cx=1356
- cy=49
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1293,8 +1288,8 @@ windowlayout=563
  ncy=0
  x=0
  y=-5
- cx=1341
- cy=-2
+ cx=1356
+ cy=0
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1304,7 +1299,7 @@ windowlayout=563
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/win_mixer/src/win_mixer.pas
+ value=/home/fred/win_mixer/src/win_mixer_test.pas
  history=10
   /home/fred/win_mixer/src/win_mixer_test.pas
   /home/fred/win_mixer/src/win_mixer.pas
@@ -1333,12 +1328,12 @@ windowlayout=563
  x=208
  y=0
  cx=1148
- cy=528
+ cy=527
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1374,9 +1369,9 @@ windowlayout=563
  ncx=0
  ncy=0
  x=0
- y=52
+ y=53
  cx=1356
- cy=528
+ cy=527
  rcx=0
  rcy=0
 [targetconsole]
