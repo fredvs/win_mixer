@@ -1,9 +1,11 @@
 program win_mixer_test;
 
+{$mode objfpc}{$H+}
+ 
 uses
   {$ifdef unix}
-  cthreads,
-  cmem, {$endif}
+  cmem, cthreads,
+   {$endif}
   SysUtils,
   CTypes,
   win_mixer;
@@ -60,9 +62,8 @@ begin
   WinMixerSetCallBack(@ACallback); 
 
   readln;
-  
-  WINmixerFreeCallback();
-  
+  //sleep(5000);
+   
   writeln('Bye bye...');
 
 end.

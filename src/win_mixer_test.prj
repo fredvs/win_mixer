@@ -20,7 +20,7 @@ order17=0
 [projectoptions]
 projectdir=/home/fred/win_mixer/src
 projectfilename=/home/fred/win_mixer/src/win_mixer_test.prj
-findinfiledialog=60
+findinfiledialog=61
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -65,8 +65,9 @@ findinfiledialog=60
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=xflush
- history=8
+ value=cobra
+ history=9
+  cobra
   xflush
   xflush()
   fpnanosleep
@@ -87,7 +88,7 @@ finddialog=8
  [finddialogfo]
  stackedunder=
  x=614
- y=621
+ y=496
  cx=234
  cy=269
 replacedialog=15
@@ -448,12 +449,12 @@ makeoptionson=7
  4092
  4095
 compilerusedon=29
- 4095
+ 4031
  0
  0
  0
  0
- 0
+ 64
  0
  0
  0
@@ -485,9 +486,9 @@ debuggerusedon=6
  0
  0
 exeusedon=14
- 4091
+ 4031
  0
- 4
+ 64
  0
  0
  0
@@ -765,8 +766,9 @@ envvarons=0
 [edit]
 hintwidth=462
 hintheight=214
-finddtext=snd_mixer_elem_callback_t
+finddtext=PrintRef
 findhistory=20
+ PrintRef
  snd_mixer_elem_callback_t
  snd_mixer_set_callback
  callback
@@ -786,11 +788,10 @@ findhistory=20
  snd_mixer_selem_get_playback_volume_range
  snd_mixer_find_selem
  snd_mixer_selem_id_set_name
- snd_mixer_selem_id_set_index
 findoptions=1
 editpos=2
- 0,-1073741823
- 0,61
+ 0,0
+ 0,63
 bookmarks0=0
 bookmarks1=0
 sourcefiles=2
@@ -808,9 +809,9 @@ visiblemodules=0
 nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=0
 [layout]
-windowlayout=563
+windowlayout=573
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -842,9 +843,9 @@ windowlayout=563
  ny=0
  ncx=0
  ncy=0
- x=737
- y=195
- cx=497
+ x=523
+ y=174
+ cx=630
  cy=314
  rcx=0
  rcy=0
@@ -1283,11 +1284,11 @@ windowlayout=563
  visible=1
  mdistate=0
  nx=0
- ny=-5
+ ny=-6
  ncx=1341
  ncy=0
  x=0
- y=-5
+ y=-6
  cx=1356
  cy=0
  rcx=0
@@ -1299,18 +1300,28 @@ windowlayout=563
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/win_mixer/src/win_mixer_test.pas
- history=10
+ value=/home/fred/win_mixer/src/win_mixer.pas
+ history=20
   /home/fred/win_mixer/src/win_mixer_test.pas
   /home/fred/win_mixer/src/win_mixer.pas
-  /C:/Users/Fred/ideu/src/breakpointsform_mfm.pas
-  /C:/Users/Fred/ideu/src/aboutform_mfm.pas
-  /C:/Users/Fred/ideu/src/procedurelistform.pas
-  /C:/Users/Fred/ideu/src/procedurelistform_mfm.pas
-  /C:/Users/Fred/mseide-msegui/lib/common/kernel/msesystypes.pas
-  /C:/Users/Fred/msesystypes.pas
-  /C:/Users/Fred/freepascal/msgtxt.inc
-  /C:/Users/Fred/freepascal/version.pas
+  /home/fred/strumpract/src/win_mixer.pas
+  /home/fred/strumpract/src/win_mixer_test.pas
+  /home/fred/win_mixer/src/alsa_mixer.pas
+  /home/fred/sound_win/AudioEndpoint.pas
+  /home/fred/sound_win/win_mixer.pas
+  /home/fred/alsa_mixer/src/alsa_mixer.pas
+  /home/fred/strumpract/src/alsa_mixer.pas
+  /home/fred/strumpract/src/alsa_mixer_test.pas
+  /home/fred/strumpract/src/uos_portaudio.pas
+  /home/fred/alsa_sound/src/alsa_sound.pas
+  /home/fred/Downloads/fpalsa-1.0.27.2.fp0/src/mixer.inc
+  /home/fred/strumpract/src/msex11gdi.pas
+  /home/fred/WavvieW/src/msex11gdi.pas
+  /home/fred/WavvieW/src/mseguiintf.pas
+  /home/fred/alsa_mixer/src/volumecontrol.c
+  /home/fred/alsa_mixer/src/mixer.inc
+  /home/fred/msecustcombo/msedispwidgets.pas
+  /home/fred/msecustcombo/mselistbrowser.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -1333,7 +1344,7 @@ windowlayout=563
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
