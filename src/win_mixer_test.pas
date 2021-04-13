@@ -3,16 +3,12 @@ program win_mixer_test;
 {$mode objfpc}{$H+}
  
 uses
-  {$ifdef unix}
-  cmem, cthreads,
-   {$endif}
   SysUtils,
-  CTypes,
   win_mixer;
 
 var
   volleft, volright: integer;
-  
+
  procedure ACallback;
   begin
    writeln('Yep, this is the callback, mixer-elem has changed...');

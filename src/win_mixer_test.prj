@@ -789,18 +789,23 @@ findhistory=20
  snd_mixer_find_selem
  snd_mixer_selem_id_set_name
 findoptions=1
-editpos=2
- 0,0
- 0,63
+editpos=3
+ 0,-1073741823
+ 0,10
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/win_mixer.pas
  ${PROJECTDIR}/win_mixer_test.pas
-relpaths=2
+ ${PROJECTDIR}/win_mixer_test.pas
+relpaths=3
  win_mixer.pas
  win_mixer_test.pas
-ismoduletexts=2
+ win_mixer_test.pas
+ismoduletexts=3
+ 0
  0
  0
 modules=0
@@ -809,7 +814,7 @@ visiblemodules=0
 nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
 windowlayout=573
  [mainfo.basedock]
@@ -1285,7 +1290,7 @@ windowlayout=573
  mdistate=0
  nx=0
  ny=-6
- ncx=1341
+ ncx=1356
  ncy=0
  x=0
  y=-6
@@ -1300,7 +1305,7 @@ windowlayout=573
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/win_mixer/src/win_mixer.pas
+ value=/home/fred/win_mixer/src/win_mixer_test.pas
  history=20
   /home/fred/win_mixer/src/win_mixer_test.pas
   /home/fred/win_mixer/src/win_mixer.pas
@@ -1323,7 +1328,7 @@ windowlayout=573
   /home/fred/msecustcombo/msedispwidgets.pas
   /home/fred/msecustcombo/mselistbrowser.pas
  [debuggerfo.project_options]
- value=1
+ value=5
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -1344,7 +1349,7 @@ windowlayout=573
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
